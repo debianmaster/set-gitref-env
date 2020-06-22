@@ -11,4 +11,4 @@ jobs:
       uses: debianmaster/set-gitref-env@master
     - name: Get the output time
       run: |
-        printenv
+        echo ${RELEASE_TAG}
