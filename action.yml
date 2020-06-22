@@ -1,0 +1,5 @@
+name: 'set-gitref-env'
+description: 'set-gitref-env'
+runs:
+  using: 'docker'
+  image: 'Dockerfile'
