@@ -5,7 +5,8 @@ Often you need to extract TAG name from GITHUB_REF environment var to use for do
 
 ```yaml
 - uses: debianmaster/set-gitref-env@master
-- run: |
+- name: Some other setup
+  run: |
     echo ${RELEASE_TAG}
 ```
 
