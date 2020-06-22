@@ -1,0 +1,14 @@
+on: [push]
+
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    name: A job to say hello
+    steps:
+    - name: Check out code into the Go module directory
+      uses: actions/checkout@v2
+    - name: Hello world action step
+      uses: debianmaster/set-gitref-env@master
+    - name: Get the output time
+      run: |
+        printenv
