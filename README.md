@@ -1,5 +1,5 @@
 
-# Set GitRef Action
+# Set GitRef Action usage
 
 Often you need to extract TAG name from GITHUB_REF environment var to use for docker image tagging and deployment scripts.  set-gitref-env one line code sets RELEASE_TAG.
 
@@ -9,7 +9,7 @@ Often you need to extract TAG name from GITHUB_REF environment var to use for do
     echo ${RELEASE_TAG}
 ```
 
-## Usage
+## Output
 |   GITHUB_REF    | RELEASE_TAG |
 |-----------------|-------------|
 |refs/heads/master| latest      |
