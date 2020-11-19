@@ -1,5 +1,9 @@
-on: [push]
-
+on:
+  push:
+    branches:
+      - 'fix/**'
+      - 'master'
+      - 'main'
 jobs:
   test:
     runs-on: ubuntu-latest
