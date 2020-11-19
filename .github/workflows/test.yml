@@ -10,7 +10,7 @@ jobs:
     name: test
     steps:
     - uses: actions/checkout@v2
-    - uses: debianmaster/set-gitref-env@fix/set-env-depricate
+    - uses: debianmaster/set-gitref-env@master
     - name: Get the output
       run: |
         echo ${RELEASE_TAG}
