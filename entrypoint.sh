@@ -4,11 +4,11 @@ apk add jq
 master="master"
 echo "before"
 cat $GITHUB_ENV
-if [ "${GITHUB_REF##*/}" == "$master" ]; then
+if [ $(cat /github/workflow/event.json | jq -r .action) == "release-to-env" ]; then
     echo 'RELEASE_TAG=latest' >> $GITHUB_ENV
     echo "1"
     cat $GITHUB_ENV
-elif [ $(cat /github/workflow/event.json | jq -r .action) == "release-to-env" ]
+elif [ "${GITHUB_REF##*/}" == "$master" ]
 then
     tag=$(cat /github/workflow/event.json  | jq -r .client_payload.tag)
     echo "RELEASE_TAG="$tag >> $GITHUB_ENV
