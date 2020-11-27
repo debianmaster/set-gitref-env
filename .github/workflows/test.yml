@@ -15,5 +15,5 @@ jobs:
     - uses: debianmaster/set-gitref-env@master
     - name: Get the output
       run: |
-        cat /github/workflow/event.json
+        echo ${{ toJson(github) }}
         echo ${RELEASE_TAG}
