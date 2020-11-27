@@ -1,6 +1,7 @@
 #!/bin/sh -l
 master="master"
 printenv
+cat /github/workflow/event.json
 if [ "${GITHUB_REF##*/}" == "$master" ]; then
     echo 'RELEASE_TAG=latest' >> $GITHUB_ENV
 else
