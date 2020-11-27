@@ -1,5 +1,5 @@
 #!/bin/sh -l
-apk add jq 
+
 master="master"
 if [ "${GITHUB_REF##*/}" == "$master" ]; then
     echo 'RELEASE_TAG=latest' >> $GITHUB_ENV
