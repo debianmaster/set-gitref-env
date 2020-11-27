@@ -1,0 +1,30 @@
+name: ChatOps
+on:
+  issue_comment:
+    types: [ created,edited ] 
+    
+jobs:
+  command:
+    strategy:
+      matrix:
+        repo: ['debianmaster/set-gitref-env']
+    runs-on: ubuntu-latest    
+    steps:
+    - uses: jungwinter/split@v1
+      id: split
+      with:
+        msg: ${{ github.event.comment.body }} 
+    - uses: peter-evans/repository-dispatch@v1
+      if: steps.split.outputs._0 == '/release' && steps.split.outputs._2 == 'dev'
+      with:
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        repository: ${{ matrix.repo }}
+        event-type: release-to-env
+        client-payload: '{ "tag": "${{steps.split.outputs._1}}" ,"prerelease": true }'
+    - uses: peter-evans/repository-dispatch@v1
+      if: steps.split.outputs._0 == '/release' && steps.split.outputs._2 == 'prod'
+      with:
+        token: ${{ secrets.REPO_ACCESS_TOKEN }}
+        event-type: release-to-env
+        repository: ${{ matrix.repo }}
+        client-payload: '{ "tag": "${{steps.split.outputs._1}}" ,"prerelease": false }'
