@@ -15,3 +15,4 @@ Often you need to extract TAG name from GITHUB_REF environment var to use for do
 |-----------------|-------------|
 |refs/heads/master| latest      |
 |refs/tags/v0.1.1 | v0.1.1      |
+|refs/tags/v0.1.2 | v0.1.2      |
