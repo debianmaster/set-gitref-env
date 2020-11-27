@@ -4,6 +4,8 @@ on:
       - 'fix/**'
       - 'master'
       - 'main'
+  repository_dispatch:
+    types: [release-to-env,clean-staging]
 jobs:
   test:
     runs-on: ubuntu-latest
@@ -13,4 +15,5 @@ jobs:
     - uses: debianmaster/set-gitref-env@master
     - name: Get the output
       run: |
+        cat /github/workflow/event.json
         echo ${RELEASE_TAG}
