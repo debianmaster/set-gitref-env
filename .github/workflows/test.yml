@@ -15,5 +15,4 @@ jobs:
     - uses: debianmaster/set-gitref-env@fix/chat-ops
     - name: Get the output
       run: |
-        echo ${{ toJson(github) }}
         echo ${RELEASE_TAG}
