@@ -2,6 +2,7 @@
 
 apk add jq 
 master="master"
+cat /github/workflow/event.json
 if [ "${GITHUB_REF##*/}" == "$master" ]; then
     echo 'RELEASE_TAG=latest' >> $GITHUB_ENV
 elif [ $(cat /github/workflow/event.json | jq -r .action) == "release-to-env" ]
