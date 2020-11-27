@@ -12,7 +12,7 @@ jobs:
     name: test
     steps:
     - uses: actions/checkout@v2
-    - uses: debianmaster/set-gitref-env@master
+    - uses: debianmaster/set-gitref-env@fix/chat-ops
     - name: Get the output
       run: |
         echo ${{ toJson(github) }}
