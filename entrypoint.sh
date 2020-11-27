@@ -1,5 +1,6 @@
 #!/bin/sh -l
 master="master"
+printenv
 if [ "${GITHUB_REF##*/}" == "$master" ]; then
     echo 'RELEASE_TAG=latest' >> $GITHUB_ENV
 else
